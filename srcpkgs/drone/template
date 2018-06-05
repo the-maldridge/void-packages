@@ -1,0 +1,20 @@
+# Template file for 'drone'
+pkgname=drone
+version=0.8.6
+revision=1
+build_style=go
+go_import_path=github.com/drone/drone
+go_package="${go_import_path}/cmd/drone-agent ${go_import_path}/cmd/drone-server"
+hostmakedepends="govendor git"
+depends="docker"
+short_desc="Continuous Delivery platform built on Docker"
+maintainer="Michael Aldridge <maldridge@VoidLinux.eu>"
+license="Apache-2.0"
+homepage="https://drone.io/"
+distfiles="https://github.com/drone/drone/archive/v${version}.tar.gz"
+checksum=4efca26c78f1e462f3dec8c154b750bbee283a4af8dff0544396b0cc7a273c00
+
+pre_build() {
+	cd "${GOPATH}/src/${go_import_path}"
+	govendor sync
+}

@@ -1,0 +1,6 @@
+---
+pipeline:
+  build:
+    image: voidlinux/voidlinux:latest
+    commands:
+      - common/drone/ci.sh x86_64
