@@ -1,0 +1,18 @@
+# Template file for 'packr'
+pkgname=packr
+version=1.13.7
+revision=1
+build_style=go
+go_import_path=github.com/gobuffalo/packr
+go_package=$go_import_path/packr
+hostmakedepends="git"
+short_desc="The simple and easy way to embed static files into Go binaries"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="MIT"
+homepage="https://github.com/gobuffalo/packr"
+distfiles="https://github.com/gobuffalo/packr/archive/v$version.tar.gz"
+checksum=f6220bba357a7b21d313577611af56af0a9a13d33dda65fac4f7237500968a4f
+
+post_install() {
+	vlicense LICENSE.txt
+}
