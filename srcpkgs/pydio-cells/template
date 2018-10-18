@@ -1,0 +1,31 @@
+# Template file for 'pydio-cells'
+pkgname=pydio-cells
+version=1.2.0
+revision=1
+build_style=go
+go_import_path=github.com/pydio/cells
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="packr git"
+makedepends=""
+depends=""
+short_desc="Future-proof file sharing platform"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="AGPL-3.0-or-later"
+homepage="https://pydio.com"
+
+do_fetch() {
+        mkdir -p $GOSRCPATH
+        cd $GOSRCPATH
+        git clone -b v$version git://github.com/pydio/cells.git .
+}
+
+do_build() {
+        cd $GOSRCPATH
+        mkdir -p $GOPATH/bin
+        ln -s $(which packr) $GOPATH/bin/packr
+        make
+}
