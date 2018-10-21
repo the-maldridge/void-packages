@@ -1,0 +1,24 @@
+# Template file for 'libcitadel'
+pkgname=libcitadel
+version=922
+revision=1
+wrksrc=$pkgname
+build_style=gnu-configure
+makedepends="zlib-devel"
+short_desc="Open source email and collaboration - Core Libraries"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-only"
+homepage="http://www.citadel.org"
+distfiles="http://easyinstall.citadel.org/libcitadel-$version.tar.gz"
+checksum=e20ee88cde2273179b972f4a39196b7fe4ea225d325b82d3f4ae18a0d1848d77
+
+libcitadel-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.a"
+		vmove "usr/lib/*.so"
+		vmove usr/lib/pkgconfig
+	}
+}
