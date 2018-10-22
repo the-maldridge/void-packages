@@ -1,0 +1,26 @@
+# Template file for 'citadel'
+pkgname=citadel
+version=923
+revision=1
+wrksrc=$pkgname
+build_style=gnu-configure
+configure_args="--prefix=/var/lib/citadel
+ --exec-prefix=/usr/bin
+ --with-helpdir=/usr/share/citadel/help
+ --with-staticdatadir=/usr/share/citadel
+ --with-spooldir=/var/spool/citadel
+ --with-sysconfdir=/etc/citadel
+ --with-rundir=/var/run/citadel
+ --with-ssldir=/var/lib/citadel/ssl
+ --with-autosysconfdir=/var/lib/citadel/auto
+ --with-datadir=/var/lib/citadel/db
+ --with-utility-bindir=/usr/bin
+ --with-docdir=/usr/share/doc/citadel"
+makedepends="libcitadel-devel zlib-devel libical-devel libsieve-devel
+ db-devel libressl-devel libldap-devel expat-devel libcurl-devel pam-devel"
+short_desc="Open source email and collaboration"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-only"
+homepage="http://citadel.org"
+distfiles="http://easyinstall.citadel.org/citadel-$version.tar.gz"
+checksum=bab10dd7b8eb500c187b9d3d6ce88c50b7ba685a982fa91397d7793131829d59
