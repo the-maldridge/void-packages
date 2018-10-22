@@ -1,0 +1,24 @@
+# Template file for 'libsieve'
+pkgname=libsieve
+version=2.2.7
+revision=1
+build_wrksrc=src
+build_style=gnu-configure
+hostmakedepends="flex"
+short_desc="Implementation of the Sieve mail filtering language"
+maintainer="Michael Aldridge <maldridge@VoidLinux.eu>"
+license="LGPL-2.1-only"
+homepage="http://sievemail.org"
+distfiles="https://sourceforge.net/projects/libsieve/files/libsieve/$version/libsieve-$version.tar.gz"
+checksum=41645ad28d25388925f352858ea23a17ff2a25897b98c72e864d8cde899a6723
+
+libsieve-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.a"
+		vmove "usr/lib/*.so"
+		vmove usr/lib/pkgconfig
+	}
+}
