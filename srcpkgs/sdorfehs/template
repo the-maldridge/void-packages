@@ -1,0 +1,16 @@
+# Template file for 'sdorfehs'
+pkgname=sdorfehs
+version=0.0.0.20190827
+revision=1
+wrksrc=$pkgname-master
+build_style=gnu-makefile
+hostmakedepends="pkg-config"
+makedepends="libX11-devel libXft-devel libXtst-devel freetype-devel"
+short_desc="A tiling window manager"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="GPL-2.0"
+homepage="https://github.com/jcs/sdorfehs"
+distfiles="https://github.com/jcs/sdorfehs/archive/master.tar.gz>$pkgname-$version.tar.gz"
+checksum=7c103720f5c1cbbe721e4c2dfb354109fe1ed5909f72127494f059bde354e8ae
+
+CFLAGS+="-I $XBPS_CROSS_BASE/usr/include/freetype2/"
