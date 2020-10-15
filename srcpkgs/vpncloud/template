@@ -1,0 +1,12 @@
+# Template file for 'vpncloud'
+pkgname=vpncloud
+version=1.4.0
+revision=1
+build_style=cargo
+hostmakedepends="ruby-asciidoctor"
+short_desc="Peer-to-peer VPN"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="GPL-3.0-only"
+homepage="https://vpncloud.ddswd.de"
+distfiles="https://github.com/dswd/vpncloud/archive/v$version.tar.gz"
+checksum=592925cfdf94d7972738f59dc8c9df114730234810faa6fbfc808491f43cdc43
