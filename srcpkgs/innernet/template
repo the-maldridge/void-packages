@@ -1,0 +1,22 @@
+# Template file for 'innernet'
+pkgname=innernet
+version=1.0.0
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=cargo
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="llvm11"
+makedepends=""
+depends=""
+short_desc="Private network system that uses WireGuard under the hood"
+maintainer="Michael Aldridge <maldridge@VoidLinux.org>"
+license="MIT"
+homepage="https://github.com/tonarino/innernet"
+distfiles="https://github.com/tonarino/innernet/archive/refs/tags/v$version.tar.gz"
+checksum=f82618f0317d66b260babc7bb9e657ec56c0ba27e8592e88f326e5245ea23e7f
