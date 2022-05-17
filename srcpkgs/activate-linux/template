@@ -1,0 +1,23 @@
+# Template file for 'activate-linux'
+pkgname=activate-linux
+version=1.0.0
+revision=1
+build_style=gnu-makefile
+make_build_args="backends=x11"
+hostmakedepends="pkg-config"
+makedepends="libX11-devel libXext-devel libXfixes-devel
+ libXinerama-devel libXrandr-devel cairo-devel libconfig-devel"
+short_desc="Activate Windows watermark for Linux"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="GPL-3.0-Only"
+homepage="https://github.com/MrGlockenspiel/activate-linux"
+distfiles="https://github.com/MrGlockenspiel/activate-linux/archive/refs/tags/v$version.tar.gz"
+checksum=3698f4e925045cce7f65c2d54cf16d770158a70e4e39ca270d335a3f5fd3d27a
+
+CFLAGS=" -Isrc -I$XBPS_CROSS_BASE/usr/include/cairo -DNO_WAYLAND"
+LDFLAGS=" -lXfixes -lX11 -lXinerama -lXrandr -lcairo"
+
+do_install() {
+	vbin activate-linux
+	vlicense LICENSE.md
+}
