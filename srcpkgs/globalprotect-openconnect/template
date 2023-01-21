@@ -1,0 +1,14 @@
+# Template file for 'globalprotect-openconnect'
+pkgname=globalprotect-openconnect
+version=1.4.9
+revision=1
+build_style=cmake
+makedepends="qt5-devel qt5-websockets-devel qt5-tools-devel
+ qt5-webengine-devel qt5-declarative-devel qt5-webchannel-devel
+ qt5-location-devel qtkeychain-qt5-devel"
+short_desc="GlobalProtect VPN client (GUI) for Linux"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/yuezk/GlobalProtect-openconnect"
+distfiles="https://github.com/yuezk/GlobalProtect-openconnect/archive/refs/tags/v$version.tar.gz"
+checksum=7239845c47779f0981081211fed7396b5780dff41dfb9207a17f0852ce826d17
