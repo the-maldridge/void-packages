@@ -1,0 +1,8 @@
+#!/bin/sh
+
+: "${PORT:=443}"
+: "${OPTS:=--log-file console}"
+
+[ -r ./conf ] && . ./conf
+
+chpst -u _netbird /usr/bin/netbird-mgmt management --port "$PORT" ${OPTS}
