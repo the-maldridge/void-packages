@@ -1,0 +1,23 @@
+# Template file for 'netbird-dashboard'
+pkgname=netbird-dashboard
+version=1.8.0
+revision=1
+hostmakedepends="nodejs"
+short_desc="NetBird Management Service Web UI Panel"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="BSD-3-Clause"
+homepage="https://app.netbird.io"
+distfiles="https://github.com/netbirdio/dashboard/archive/refs/tags/v$version.tar.gz"
+checksum=087d37abf3bad4ffb0d32dda014f34388d1930af735589dc6e3a281739228576
+
+do_build() {
+        npm install
+        npm run-script build
+}
+
+do_install() {
+        vlicense LICENSE
+        vmkdir usr/share/netbird/dashboard
+        vcopy build/* usr/share/netbird/dashboard/
+}
+
