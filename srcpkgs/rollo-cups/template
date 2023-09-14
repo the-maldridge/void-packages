@@ -1,0 +1,18 @@
+# Template file for 'rollo-cups'
+pkgname=rollo-cups
+version=1.0.2
+revision=1
+archs=x86_64
+short_desc="CUPS Filter for the Rollo Thermal Printer"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="Proprietary"
+homepage="https://www.rollo.com/driver-linux/"
+distfiles="https://rollo-main.b-cdn.net/driver-dl/beta/rollo-driver-ubuntu_x86_64_v$version.tar.gz"
+checksum=33f5474d4e8d128330c2674ca1529481507249727b09093792afe999e3736df5
+restricted=yes
+repository=nonfree
+
+do_install() {
+	vinstall ubuntu_x86_64_v$version/rastertolabelbeeprt 0755 usr/lib/cups/filter
+	vinstall ubuntu_x86_64_v$version/ppd/ThermalPrinter.ppd 0644 usr/share/ppd/Rollo
+}
