@@ -1,11 +1,12 @@
 # Template file for 'libimobiledevice'
 pkgname=libimobiledevice
 version=1.3.0
-revision=8
+revision=9
 build_style=gnu-configure
 hostmakedepends="automake libtool pkgconf python3-Cython"
-makedepends="python3-devel libglib-devel openssl-devel
- libusb-devel libplist-devel libusbmuxd-devel"
+makedepends="python3-devel python3-setuptools libglib-devel
+ openssl-devel libusb-devel libplist-devel libusbmuxd-devel
+ libimobiledevice-glue-devel"
 short_desc="Library to communicate with Apple devices"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="LGPL-2.1-only"
