@@ -1,0 +1,22 @@
+# Template file for 'brother-hll3270cdw'
+pkgname=brother-hll3270cdw
+version=1.0.2
+revision=1
+archs="x86_64"
+short_desc="Printer Driver for Brother HL-L3270CDW"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="custom:Proprietary"
+homepage="https://support.brother.com/g/b/downloadhowto.aspx?c=us&lang=en&prod=hll3270cdw_us_eu_as&os=128&dlid=dlf103926_000&flang=4&type3=10283"
+distfiles="https://download.brother.com/welcome/dlf103926/hll3270cdwpdrv-1.0.2-0.i386.deb"
+checksum=f811a5fee775a3717fe725fc3f838b4f3e1bb9cecb00c93e4ae7e91bca7b40eb
+nopie_files="/usr/bin/brprintconf_hll3270cdw
+ /opt/brother/Printers/hll3270cdw/lpd/brhll3270cdwfilter"
+
+do_install() {
+	vmkdir usr/lib/cups/filter
+	vmkdir usr/share/cups/model
+	vmkdir opt/
+
+	vcopy opt/* opt/
+	vcopy usr/* usr/	
+}
