@@ -1,0 +1,14 @@
+# Template file for 'cosmic-settings'
+pkgname=cosmic-settings
+version=1.0.15
+revision=1
+build_style=cargo
+make_install_args="--path cosmic-settings"
+hostmakedepends="pkg-config"
+makedepends="libxkbcommon-devel eudev-libudev-devel pipewire-devel llvm21-devel libinput-devel"
+short_desc="COSMIC Settings"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-settings"
+distfiles="https://github.com/pop-os/cosmic-settings/archive/refs/tags/epoch-$version.tar.gz"
+checksum=4c158935aa652156dfa5ad8524666f4fb2ba2654ea9f6ec2d5fe94e0e6549e91
