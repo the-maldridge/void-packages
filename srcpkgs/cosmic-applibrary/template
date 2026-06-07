@@ -1,0 +1,13 @@
+# Template file for 'cosmic-applibrary'
+pkgname=cosmic-applibrary
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="wayland-devel libxkbcommon-devel"
+short_desc="COSMIC App Library"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-app-library/"
+distfiles="https://github.com/pop-os/cosmic-app-library/archive/refs/tags/epoch-$version.tar.gz"
+checksum=01567f74dd7469b7c86dbfe6d98e5cac2c7fa56ff18b4ff3a590749992dfd86a
