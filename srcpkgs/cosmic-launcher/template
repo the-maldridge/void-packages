@@ -1,0 +1,13 @@
+# Template file for 'cosmic-launcher'
+pkgname=cosmic-launcher
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="libxkbcommon-devel"
+short_desc="Launcher for COSMIC"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-launcher"
+distfiles="https://github.com/pop-os/cosmic-launcher/archive/refs/tags/epoch-$version.tar.gz"
+checksum=3f88de9114ecc9484112f6eb5b00c8571fba38ec0dafc79b0a8765f2b4daab08
