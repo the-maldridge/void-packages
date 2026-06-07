@@ -1,0 +1,21 @@
+# Template file for 'cosmic-applets'
+pkgname=cosmic-applets
+version=1.0.15
+revision=1
+build_style=cargo
+make_install_args="--path cosmic-applets"
+hostmakedepends="pkg-config clang"
+makedepends="wayland-devel libxkbcommon-devel eudev-libudev-devel
+ dbus-devel pipewire-devel libinput-devel"
+short_desc="Applets for cosmic-panel"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-applets/"
+distfiles="https://github.com/pop-os/cosmic-applets/archive/refs/tags/epoch-$version.tar.gz"
+checksum=9de6b2de067ff2ae9aa8c9bb5c750c13b458f85cdfb81458bd565efc8635b46d
+
+post_install() {
+	while read -r SRC TARGET; do
+		ln -s "$SRC" "$DESTDIR/$TARGET"
+	done <debian/links
+}
