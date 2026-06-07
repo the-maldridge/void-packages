@@ -1,0 +1,13 @@
+# Template file for 'cosmic-bg'
+pkgname=cosmic-bg
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="wayland-devel libxkbcommon-devel"
+short_desc="COSMIC session service which applies backgrounds to displays"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-bg"
+distfiles="https://github.com/pop-os/cosmic-bg/archive/refs/tags/epoch-$version.tar.gz"
+checksum=abba9b0e47b3f979359b4cc96c6c27fc44fe1c97d5c0d8edbc31e4d523bc22da
