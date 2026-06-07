@@ -1,0 +1,13 @@
+# Template file for 'cosmic-idle'
+pkgname=cosmic-idle
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="libxkbcommon-devel"
+short_desc="Timer to blank the screen/lock the session in COSMIC"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-idle"
+distfiles="https://github.com/pop-os/cosmic-idle/archive/refs/tags/epoch-$version.tar.gz"
+checksum=2b0efa9bb8da2f7469e4bba58a5af7868a767cb9a64a4bbca1aab2989466641d
