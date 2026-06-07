@@ -1,0 +1,13 @@
+# Template file for 'cosmic-osd'
+pkgname=cosmic-osd
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="libxkbcommon-devel eudev-libudev-devel libinput-devel pulseaudio-devel"
+short_desc="OSD for COSMIC"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-osd"
+distfiles="https://github.com/pop-os/cosmic-osd/archive/refs/tags/epoch-$version.tar.gz"
+checksum=868851a3ac185b1eea76a963bf3aabbbce8eaacf06ea927d4848500fae729172
