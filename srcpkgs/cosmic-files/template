@@ -1,0 +1,13 @@
+# Template file for 'cosmic-files'
+pkgname=cosmic-files
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="libxkbcommon-devel libzstd-devel glib-devel"
+short_desc="COSMIC file manager"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-files"
+distfiles="https://github.com/pop-os/cosmic-files/archive/refs/tags/epoch-$version.tar.gz"
+checksum=7dfc6910a273229daa3a38b5c36e26395fd9a08c63480c0e941766061266b4f3
