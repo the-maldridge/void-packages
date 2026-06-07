@@ -1,0 +1,13 @@
+# Template file for 'cosmic-settings-daemon'
+pkgname=cosmic-settings-daemon
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="eudev-libudev-devel openssl-devel libzstd-devel pulseaudio-devel libinput-devel"
+short_desc="COSMIC Settings Daemon"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-settings-daemon"
+distfiles="https://github.com/pop-os/cosmic-settings-daemon/archive/refs/tags/epoch-$version.tar.gz"
+checksum=df837f2f1e805c25512dfcfeacb4a76a452f5e498a86447dbd3f9683ff1bc42b
