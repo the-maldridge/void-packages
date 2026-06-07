@@ -1,0 +1,14 @@
+# Template file for 'cosmic-panel'
+pkgname=cosmic-panel
+version=1.0.15
+revision=1
+build_style=cargo
+make_install_args="--path cosmic-panel-bin"
+hostmakedepends="pkg-config"
+makedepends="libxkbcommon-devel"
+short_desc="COSMIC applet for creating panels and docks"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-panel"
+distfiles="https://github.com/pop-os/cosmic-panel/archive/refs/tags/epoch-$version.tar.gz"
+checksum=4effe3f9c3dfa0888eb8273344525c143c200e2bd3d56e82f9ad0ff203882be1
