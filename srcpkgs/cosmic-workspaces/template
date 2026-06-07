@@ -1,0 +1,13 @@
+# Template file for 'cosmic-workspaces'
+pkgname=cosmic-workspaces
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="libxkbcommon-devel eudev-libudev-devel libgbm-devel libinput-devel"
+short_desc="Workspaces for COSMIC Desktop"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-workspaces-epoch"
+distfiles="https://github.com/pop-os/cosmic-workspaces-epoch/archive/refs/tags/epoch-$version.tar.gz"
+checksum=a4a0d3ff668df7fbfa3909be20c23dd4e7fc1f5e89a6d67cd4f7bc575b805a92
