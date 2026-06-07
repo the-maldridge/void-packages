@@ -1,0 +1,15 @@
+# Template file for 'cosmic-comp'
+pkgname=cosmic-comp
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="wayland-devel libxkbcommon-devel eudev-libudev-devel
+ libxcb-devel libdisplay-info-devel libseat-devel libinput-devel
+ pixman-devel libgbm-devel"
+short_desc="Compositor for the COSMIC desktop environment"
+maintainer="Michael Aldridge <maldridge@voidlinux.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-comp"
+distfiles="https://github.com/pop-os/cosmic-comp/archive/refs/tags/epoch-$version.tar.gz"
+checksum=6a264893183b6a8fe3328437bd3d5a0219a5bad498b270e3b77a2cd015e3671d
