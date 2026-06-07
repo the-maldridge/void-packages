@@ -1,0 +1,12 @@
+# Template file for 'cosmic-randr'
+pkgname=cosmic-randr
+version=1.0.15
+revision=1
+build_style=cargo
+make_install_args="--path cli"
+short_desc="Library and utility for displaying and configuring Wayland outputs"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-randr"
+distfiles="https://github.com/pop-os/cosmic-randr/archive/refs/tags/epoch-$version.tar.gz"
+checksum=c6892430ab2efe1b778bfa353a7d51f6766c07b1103dbe14021a1f540e57900a
