@@ -1,0 +1,11 @@
+# Template file for 'cosmic-screenshot'
+pkgname=cosmic-screenshot
+version=1.0.15
+revision=1
+build_style=cargo
+short_desc="Utility for capturing screenshots via XDG Desktop Portal"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-screenshot"
+distfiles="https://github.com/pop-os/cosmic-screenshot/archive/refs/tags/epoch-$version.tar.gz"
+checksum=bcc1fc90e697b857bda0c88163f0a5c632c80ef7ef6faa5ba1ac4ccf26073a2a
