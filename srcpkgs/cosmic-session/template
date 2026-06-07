@@ -1,0 +1,19 @@
+# Template file for 'cosmic-session'
+pkgname=cosmic-session
+version=1.0.15
+revision=1
+build_style=cargo
+short_desc="COSMIC Desktop Session"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-session"
+distfiles="https://github.com/pop-os/cosmic-session/archive/refs/tags/epoch-$version.tar.gz"
+checksum=6ad66f984c05780753e3730cda779c9906e218d63bb8eec7b36312af1d74e072
+
+post_install() {
+	vbin data/start-cosmic
+	vmkdir usr/share/wayland-sessions
+	vinstall data/cosmic.desktop 0644 usr/share/wayland-sessions/
+	vmkdir usr/share/dconf/profile
+	vinstall data/dconf/profile/cosmic 0644 usr/share/dconf/profile/cosmic
+}
