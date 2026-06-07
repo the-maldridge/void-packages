@@ -1,0 +1,13 @@
+# Template file for 'cosmic-notifications'
+pkgname=cosmic-notifications
+version=1.0.15
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="libxkbcommon-devel"
+short_desc="Notifications for COSMIC Desktop"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/pop-os/cosmic-notifications"
+distfiles="https://github.com/pop-os/cosmic-notifications/archive/refs/tags/epoch-$version.tar.gz"
+checksum=1bfe04d3e7f10023dd4a953f7a8df06cc5859e5001e3b566e1cef1d9e2035a72
