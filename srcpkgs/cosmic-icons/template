@@ -1,0 +1,18 @@
+# Template file for 'cosmic-icons'
+pkgname=cosmic-icons
+version=1.0.15
+revision=1
+short_desc="System76 Cosmic icon theme for Linux"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="CC-BY-SA-4.0"
+homepage="https://github.com/pop-os/cosmic-icons"
+distfiles="https://github.com/pop-os/cosmic-icons/archive/refs/tags/epoch-$version.tar.gz"
+checksum=f0745b25285cae94ae1a61e7fd700234342d5fc871150725afc06a7f271d4c0f
+
+do_install() {
+	vmkdir usr/share/icons/cosmic
+	cd freedesktop
+	find ./scalable -type f -exec install -Dm0644 {} $DESTDIR/usr/share/icons/cosmic/{} \;
+	cd ../extra
+	find ./scalable -type f -exec install -Dm0644 {} $DESTDIR/usr/share/icons/cosmic/{} \;
+}
