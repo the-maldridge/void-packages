@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}/bin
+libdir=${exec_prefix}/lib
+includedir=/usr/include/libyuv
+
+Name: libyuv
+Description: libyuv is an open source project that includes YUV conversion, scaling, and color space conversion functions.
+Version: 0.0.0
+Requires:
+Libs: -Lyuv -lyuv
+Cflags: -I${includedir}
