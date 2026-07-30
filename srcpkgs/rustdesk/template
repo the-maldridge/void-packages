@@ -1,0 +1,30 @@
+# Template file for 'rustdesk'
+pkgname=rustdesk
+version=1.4.9
+revision=1
+_hbb_commit=5591761
+build_style=cargo
+configure_args="--features linux-pkg-config"
+hostmakedepends="git pkg-config"
+makedepends="libX11-devel libXi-devel openssl-devel libglib-devel
+ gstreamer1-devel libXtst-devel atk-devel gdk-pixbuf-devel cairo-devel
+ libsodium-devel gtk+3-devel gst-plugins-base1-devel libclang
+ pam-devel opus-devel libyuv-devel libvpx-devel libaom-devel
+ libpulseaudio"
+short_desc="Rust based remote desktop tool"
+maintainer="Michael Aldridge <aldridge.mac@gmail.com>"
+license="AGPL-3.0-only"
+homepage="https://rustdesk.com/"
+distfiles="https://github.com/rustdesk/rustdesk/archive/refs/tags/$version.tar.gz
+ https://github.com/rustdesk/hbb_common/archive/${_hbb_commit}.tar.gz>hbb_common.tar.gz"
+checksum="1769fcc51751aab91bc0cfa691723722f51d3693ce3ddea3d92cfb1c319100e0
+ 62868ae140c4ce1f79416ba31e1c9881f6bf3d3fb4731941990f24fd57f799d1"
+skip_extraction="hbb_common.tar.gz"
+
+post_extract() {
+	vsrcextract -C libs/hbb_common --strip-components=1 hbb_common.tar.gz
+}
+
+post_install() {
+	vlicense LICENSE
+}
