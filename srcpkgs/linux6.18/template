@@ -23,7 +23,7 @@ checksum="9106a4605da9e31ff17659d958782b815f9591ab308d03b0ee21aad6c7dced4b
 python_version=3
 
 # XXX Restrict archs until a proper <arch>-dotconfig is available in FILESDIR.
-archs="x86_64* i686* aarch64*"
+archs="x86_64* i686* aarch64* armv7l*"
 
 nodebug=yes  # -dbg package is generated below manually
 nostrip=yes
