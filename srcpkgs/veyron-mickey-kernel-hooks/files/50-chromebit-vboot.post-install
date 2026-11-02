@@ -1,0 +1,56 @@
+#!/bin/sh
+# System kernel post-install hook for veyron-mickey-kernel-hooks
+
+VERSION="$1"
+KERNEL_IMAGE="$2"
+
+if [ ! -f "${KERNEL_IMAGE}" ]; then
+    echo "=> veyron-vboot: Kernel image not found, skipping bundle creation."
+    exit 0
+fi
+
+STAGING_DIR=$(mktemp -d /tmp/vboot-build.XXXXXX)
+DTB_SOURCE="/usr/lib/linux-${VERSION}/rk3288-veyron-mickey.dtb"
+CONFIG_LINE="console=ttyS2,115200n8 root=/dev/mmcblk0p2 rootwait rw loglevel=7"
+
+echo "=> veyron-vboot: Generating Depthcharge signed bundle for Kernel ${VERSION}..."
+
+if [ ! -f "${DTB_SOURCE}" ]; then
+    echo "=> veyron-vboot: [ERROR] Device tree blob missing at ${DTB_SOURCE}"
+    rm -rf "${STAGING_DIR}"
+    exit 1
+fi
+
+# 1. Map paths into the dynamic ITS profile template
+cp /etc/kernel.d/veyron-fit.its "${STAGING_DIR}/fit.its"
+sed -i "s|@KERNEL_PATH@|${KERNEL_IMAGE}|g" "${STAGING_DIR}/fit.its"
+sed -i "s|@DTB_PATH@|${DTB_SOURCE}|g" "${STAGING_DIR}/fit.its"
+
+# 2. Build the structural FIT Image container (.itb)
+mkimage -f "${STAGING_DIR}/fit.its" "${STAGING_DIR}/vmlinuz.itb" >/dev/null
+
+# 3. Handle structure padding constraints
+echo " " > "${STAGING_DIR}/dummy_bootloader"
+echo "${CONFIG_LINE}" > "${STAGING_DIR}/cmdline.txt"
+
+# 4. Cryptographically pack the vboot bundle using default developer keys
+vbutil_kernel \
+    --pack "${STAGING_DIR}/vboot-kernel.vblock" \
+    --keyblock /usr/share/vboot/devkeys/kernel.keyblock \
+    --signprivate /usr/share/vboot/devkeys/kernel_data_key.vbprivk \
+    --version 1 \
+    --config "${STAGING_DIR}/cmdline.txt" \
+    --bootloader "${STAGING_DIR}/dummy_bootloader" \
+    --vmlinuz "${STAGING_DIR}/vmlinuz.itb" \
+    --arch arm
+
+# 5. Route block output intelligently based on current environment
+if [ -b "/dev/mmcblk0p1" ]; then
+    echo "=> veyron-vboot: Target hardware detected. Flashing directly to /dev/mmcblk0p1..."
+    dd if="${STAGING_DIR}/vboot-kernel.vblock" of=/dev/mmcblk0p1 conv=notrunc status=none
+else
+    echo "=> veyron-vboot: Target eMMC block unavailable. Staging bundle to /boot/vboot-${VERSION}.img..."
+    cp "${STAGING_DIR}/vboot-kernel.vblock" "/boot/vboot-${VERSION}.img"
+fi
+
+rm -rf "${STAGING_DIR}"
