@@ -23,7 +23,7 @@ checksum="87363c24f10e06321eb362765521094e94471f6bff8bce2d6b3e40f39f004953
 python_version=3
 
 # XXX Restrict archs until a proper <arch>-dotconfig is available in FILESDIR.
-archs="x86_64* i686* aarch64*"
+archs="x86_64* i686* aarch64* armv7l*"
 
 nodebug=yes  # -dbg package is generated below manually
 nostrip=yes
@@ -118,7 +118,7 @@ do_build() {
 	case "$XBPS_TARGET_MACHINE" in
 		i686*) _args="bzImage modules"; arch=i386;;
 		x86_64*) _args="bzImage modules"; arch=x86_64;;
-		arm*) _args="zImage modules dtbs"; arch=arm;;
+		arm*) _args="zImage Image modules dtbs"; arch=arm;;
 		aarch64*) _args="Image modules dtbs"; arch=arm64;;
 		ppc*) _args="zImage modules"; arch=powerpc;;
 		mips*) _args="uImage modules dtbs"; arch=mips;;
@@ -161,7 +161,8 @@ do_install() {
 			vinstall arch/x86/boot/bzImage 644 boot vmlinuz-${_kernver}
 			;;
 		arm)
-			vinstall arch/arm/boot/zImage 644 boot
+			vinstall arch/arm/boot/zImage 644 boot zImage-${_kernver}
+			vinstall arch/arm/boot/Image 644 boot Image-${_kernver}
 			make ${makejobs} ARCH=${subarch:-$arch} INSTALL_DTBS_PATH=${DESTDIR}/boot/dtbs/dtbs-${_kernver} ${_cross} dtbs_install
 			;;
 		arm64)
